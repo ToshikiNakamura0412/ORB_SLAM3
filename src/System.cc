@@ -1336,6 +1336,11 @@ vector<cv::KeyPoint> System::GetTrackedKeyPointsUn()
     return mTrackedKeyPointsUn;
 }
 
+cv::Mat System::GetCurrentFrame()
+{
+    return mpFrameDrawer->DrawFrame();
+}
+
 double System::GetTimeFromIMUInit()
 {
     double aux = mpLocalMapper->GetCurrKFTime()-mpLocalMapper->mFirstTs;
@@ -1543,6 +1548,12 @@ string System::CalculateCheckSum(string filename, int type)
     }
 
     return checksum;
+}
+
+vector<MapPoint*> System::GetAllMapPoints()
+{
+    Map* pActiveMap = mpAtlas->GetCurrentMap();
+    return pActiveMap->GetAllMapPoints();
 }
 
 } //namespace ORB_SLAM
