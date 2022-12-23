@@ -2125,10 +2125,13 @@ void Tracking::Track()
             if(bOK)
             {
                 bOK = TrackLocalMap();
-
+                mpSystem->slam_state.is_lost = false;
             }
             if(!bOK)
+            {
                 cout << "Fail to track local map!" << endl;
+                mpSystem->slam_state.is_lost = true;
+            }
         }
         else
         {
