@@ -21,7 +21,7 @@
 #define SYSTEM_H
 
 
-#include <unistd.h>
+#include<unistd.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<string>
@@ -43,6 +43,12 @@
 
 namespace ORB_SLAM3
 {
+struct SlamState
+{
+    bool is_visualized = false;
+    bool is_merged     = false;
+    bool is_lost       = false;
+};
 
 class Verbose
 {
@@ -98,6 +104,9 @@ public:
         TEXT_FILE=0,
         BINARY_FILE=1,
     };
+
+    // Slam state
+    SlamState slam_state;
 
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
