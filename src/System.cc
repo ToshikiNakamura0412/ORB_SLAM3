@@ -470,6 +470,9 @@ Sophus::SE3f System::TrackMonocular(const cv::Mat &im, const double &timestamp, 
     mTrackedMapPoints = mpTracker->mCurrentFrame.mvpMapPoints;
     mTrackedKeyPointsUn = mpTracker->mCurrentFrame.mvKeysUn;
 
+    slam_state.is_merged = mpLoopCloser->is_merged;
+    mpLoopCloser->is_merged = false;
+
     return Tcw;
 }
 
