@@ -436,4 +436,9 @@ void FrameDrawer::Update(Tracking *pTracker)
     mState=static_cast<int>(pTracker->mLastProcessedState);
 }
 
+int FrameDrawer::GetMatchPointNum()
+{
+    return mnTracked;
+}
+
 } //namespace ORB_SLAM

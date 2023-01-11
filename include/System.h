@@ -46,8 +46,8 @@ namespace ORB_SLAM3
 struct SlamState
 {
     bool is_visualized = false;
-    bool is_merged     = false;
     bool is_lost       = false;
+    bool is_merged     = false;
 };
 
 class Verbose
@@ -187,6 +187,7 @@ public:
     std::vector<cv::KeyPoint> GetTrackedKeyPointsUn();
     std::vector<MapPoint*> GetAllMapPoints();
     cv::Mat GetCurrentFrame();
+    int GetMatchPointNum();
 
     // For debugging
     double GetTimeFromIMUInit();

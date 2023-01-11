@@ -50,6 +50,10 @@ public:
     cv::Mat DrawFrame(float imageScale=1.f);
     cv::Mat DrawRightFrame(float imageScale=1.f);
 
+    // Get current num of tracking point(mono)
+    // This is a match to a MapPoint in the map
+    int GetMatchPointNum();
+
     bool both;
 
 protected:

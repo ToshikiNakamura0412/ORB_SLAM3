@@ -1343,6 +1343,13 @@ cv::Mat System::GetCurrentFrame()
 {
     return mpFrameDrawer->DrawFrame();
 }
+int System::GetMatchPointNum()
+{
+    if(slam_state.is_lost)
+        return 0;
+    else
+        return mpFrameDrawer->GetMatchPointNum();
+}
 
 double System::GetTimeFromIMUInit()
 {
